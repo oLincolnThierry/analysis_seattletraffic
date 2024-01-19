@@ -31,7 +31,7 @@ Este script Python tem como objetivo limpar e analisar um conjunto de dados cont
 ## Visualizações
 
 - Gera gráficos de barras para visualizar a distribuição dos departamentos de propriedade ('OWNERSHIPCD') e a frequência dos pontos cardeais ('CARDINAL_DIRECTION').
-### Tableau:
+### Public Tableau:
 - ![Texto Alternativo](archives_png/map_page-002.png)
 
 ### Matplotlib:
