@@ -33,7 +33,7 @@ Este script Python tem como objetivo limpar e analisar um conjunto de dados cont
 - Gera gráficos de barras para visualizar a distribuição dos departamentos de propriedade ('OWNERSHIPCD') e a frequência dos pontos cardeais ('CARDINAL_DIRECTION').
 - Visualizações:
 - ![Texto Alternativo](archives_png/map_page-002.png)
-- ![Texto Alternativo](archives_png/map_page-003.png)
+- ![Texto Alternativo](https://github.com/oLincolnThierry/analysis_seattletraffic/commit/3fc353985b5f04861b693d27b336c3acc69ec180#commitcomment-137462288)
 
 ## Exibição de imagem
 
