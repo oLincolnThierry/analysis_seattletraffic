@@ -1,36 +1,30 @@
 ![Texto Alternativo](archives_png/map_page-001.png)
 
-# Limpeza e análise de dados de câmeras de trânsito de Seattle
+# Análise de dados de câmeras de trânsito de Seattle
 
 ## Visão Geral do Projeto
+O Departamento de Transporte de Seattle tornou publico uma amostra de seus dados a respeito da distribuição de cameras pelas avenidas e vias de circulação de Seattle, apartir desses dados, foi considerado a tarefa de limpeza e extração de strings por meio de expressões contidas dentro dos padrões Regex, de modo a trabalhar exibir a distribuição das cameras aos pontos cardiais de cada camera, apartir dessas informações tem-se a distribuição de cameras de vigilancia como valor, o que permite um maior entendimento sobre o território e a preocupação do Governo em monitorar essas áreas.
 
-Este script Python tem como objetivo limpar e analisar um conjunto de dados contendo informações sobre câmeras de trânsito em Seattle. O conjunto de dados é obtido do Kaggle e inclui detalhes como propriedade da câmera, rótulos, URLs de imagens e vídeos e regiões geográficas.
+## Finalidade 
+Esse projeto foi desenvolvido para aprendizado apenas, sinta-se á vontade para modifica-lo. Estou aberto para sugestões e também para novos olhares sob o meio trabalho, pois acredito que precisa melhorar bastante ainda ! 
 
-## Configurar
+## Bibliotecas Utilizadas
 
-- `VIGILATION_API`: Uma string vazia para potencial uso futuro.
-- `metadata_json`: Caminho para o arquivo JSON de metadados.
-- Bibliotecas possíveis: pandas, matplotlib, seaborn, json_normalize, re e Imagem do módulo PIL.
-- Instalação do pacote adicional: O pacote Kaggle é instalado usando `!pip install kaggle`.
-- Credenciais Kaggle: O usuário carrega o arquivo de chave da API Kaggle (`kaggle.json`) e o script configura as permissões permitidas.
+- matplotlib.pyplot: Responsável por exibir planos cartesianos 
+- seaborn: Cria gráficos Estatísticos com diferentes estilos
+- pandas: É uma biblioteca com inumeras funções as quais a Manipulação de Dados e a Consulta destes se destacam 
+- re: Ela permite que você trabalhe com padrões de busca e correspondência em strings.
+- PIL: Permite exibir imagens e alterar suas definições, como tamanho e ângulo. 
 
-## Download e pré-processamento de dados
+## Limpeza de dados e Tratamento
 
-- Baixe o conjunto de dados "seattle-traffic-cameras" do Kaggle e o extrai.
-- Importar o conjunto de dados para um Pandas DataFrame (`df`).
-- Executar uma análise exploratória inicial, exibindo informações como formato dos dados, nomes de colunas, tipos de dados e porcentagens de valores nulos.
-
-## Limpeza de dados
-
-- Lida com valores ausentes em 'VIDEOURL' e 'WEBURL' preenchendo-os com 'N/A'.
-- Extrai cartões específicos da coluna 'CAMERALABEL', criando uma nova coluna 'CARDINAL_DIRECTION'.
-- Renomeia 'XPOS' e 'YPOS' para 'LONGITUDE' e 'LATITUDE' respectivamente.
-- Extrai URLs da coluna 'IMAGEURL'.
-- Crie uma nova coluna 'REGION' com base nos valores da coluna 'OWNERSHIPCD'.
+- Para Lidar com valores ausentes de modo conveniente e prudente na coluna 'VIDEOURL' e 'WEBURL' foi adotado o preenchimento com 'N/A' ao invés de outro método, pois pensando em questões de tomada de decisão e valores da informação seria um risco apagar os dados que eram NAN sendo esses dignos de insights.
+- Uma metrica que foi extraida dos dados foram as coordenadas cardeais(Norte,Sul,Leste,Oeste,Nordeste) dentro da coluna 'CAMERALABEL', a qual foi exibida em uma nova coluna 'CARDINAL_DIRECTION'.
+- Para maior entendimento e manutenção para públicos resolvi mudar os nomes das colunas: 'XPOS' e 'YPOS' para 'LONGITUDE' e 'LATITUDE' respectivamente.
 
 ## Visualizações
 
-- Gera gráficos de barras para visualizar a distribuição dos departamentos de propriedade ('OWNERSHIPCD') e a frequência dos pontos cardeais ('CARDINAL_DIRECTION').
+Os resultados das extrações foram tais:
 ### Tableau Software:
  ![Texto Alternativo](archives_png/map_page-002.png)
 
@@ -39,10 +33,6 @@ Este script Python tem como objetivo limpar e analisar um conjunto de dados cont
  
  ![Texto Alternativo](archives_png/transportation_department.png)
 
-## Exibição de imagem
-
-- Use a biblioteca PIL para exibir imagens de caminhos especificados.
 
 ## Conclusão
-
-Este script fornece uma visão geral abrangente do processo de limpeza e análise de dados para o conjunto de dados de câmeras de trânsito de Seattle. O DataFrame resultante (`df_pos`) está pronto para maior exploração e insights sobre padrões de câmeras de trânsito em Seattle.
+É possível notar a preocupação do departamento de transporte de seattle em monitorar a região do sul, levando em conta os aspectos do território, tem-se que a maior distribuição de vias está concentrado na região sul e seattle. Devido as divisões entre as vias, o número de cameras de vigilância se faz mais necessário para uma maior gestão, Haja vista que por mais que a cidade de um modo geral é considerada segura, ainda há indices de crimes maiores concentrados justamente na região sul, segundo informações do site: https://crimegrade.org/safest-places-in-downtown-seattle-seattle-wa. Pertinente a isso, turistas e moradores devem ter maior cautela dentro dessas regiões.
